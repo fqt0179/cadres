@@ -47,7 +47,10 @@
 			</view>
 			<view class="content-box">
 				<uni-section class="uni-section title" title="人员分布"></uni-section>
-				<view class="chart-box"></view>
+				<view class="charts-box">
+					<qiun-data-charts type="ring" :opts="{legend: { position: 'bottom' },title: { name
+						: '总' }, subtitle : { name : '12568' },  extra: { ring: { ringWidth: 20}}}" :chartData="chartsDataRing1" />
+				</view>
 				<view class="list-data">
 					<view class="list-header uni-flex">
 						<view class="list-header-item area">地区</view>
@@ -96,7 +99,10 @@
 			</view>
 			<view class="content-box">
 				<uni-section class="uni-section title" title="年龄分布"></uni-section>
-				<view class="chart-box"></view>
+				<view class="charts-box">
+					<qiun-data-charts type="rose" :opts="{legend: { position : 'bottom' }}" :chartData="ageChartData"
+						background="none" />
+				</view>
 				<view class="list-data age-list-data">
 					<view class="list-header uni-flex">
 						<view class="list-header-item area">村民年龄</view>
@@ -133,7 +139,7 @@
 		},
 		data() {
 			return {
-				role: 'admin',
+				role: 'admin1',
 				items: ['乡村总览', '智慧党建', '产业大数据', '资源大数据'],
 				current: 0,
 				title: 'Hello',
@@ -196,7 +202,52 @@
 						b: 10000,
 						c: '10%'
 					}
-				]
+				],
+				chartsDataRing1: {
+					"series": [{
+						"data": [{
+							"name": "党政机关",
+							"value": 50
+						}, {
+							"name": "事业单位",
+							"value": 30
+						}, {
+							"name": "国有企业",
+							"value": 20
+						}, {
+							"name": "非国有企业",
+							"value": 18
+						}, {
+							"name": "社会组织",
+							"value": 80
+						}]
+					}]
+				},
+				ageChartData: {
+					"series": [{
+						"data": [{
+								"name": "20岁以下",
+								"value": 50
+							},
+							{
+								"name": "20-30岁",
+								"value": 30
+							},
+							{
+								"name": "30-40岁",
+								"value": 20
+							},
+							{
+								"name": "40-50岁",
+								"value": 18
+							},
+							{
+								"name": "50岁以上",
+								"value": 8
+							}
+						]
+					}]
+				}
 			};
 		},
 		onLoad() {},
