@@ -1,0 +1,31 @@
+/* picker 值样式 */
+.cus-picker-value {
+	font-size: 32rpx;
+	color: #333;
+	flex: 1;
+	line-height: 88rpx;
+}
+
+.cus-input {
+	font-size: 32rpx;
+	height: 88rpx;
+	line-height: 88rpx;
+	color: #333;
+	flex: 1;
+}
+
+.cus-star-red {
+	color: #f00;
+	margin-right: 8rpx;
+}
+
+.cus-fixed-footer-btn-box {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20rpx 32rpx;
+	background: #fff;
+	border-top: 2rpx solid #F5F5F5;
+}

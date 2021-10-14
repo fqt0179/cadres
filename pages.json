@@ -1,0 +1,347 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "智慧乡村"
+			}
+		}, {
+			"path": "pages/workbench/workbench",
+			"style": {
+				"navigationBarTitleText": "工作台",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/announcement/announcementDetail",
+			"style": {
+				"navigationBarTitleText": "公告详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/workDocumentary/workDocumentary",
+			"style": {
+				"navigationBarTitleText": "工作纪实",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/workDocumentary/details",
+			"style": {
+				"navigationBarTitleText": "工作详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/workDocumentary/addDocmentary",
+			"style": {
+				"navigationBarTitleText": "工作纪实",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/crowdInfo",
+			"style": {
+				"navigationBarTitleText": "群众管理",
+				"enablePullDownRefresh": false,
+				"navigationStyle":"custom"
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/addCrowd",
+			"style": {
+				"navigationBarTitleText": "新增群众",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/crowdDetails",
+			"style": {
+				"navigationBarTitleText": "群众详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/addPlantInfo",
+			"style": {
+				"navigationBarTitleText": "新增种植信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/addFarmInfo",
+			"style": {
+				"navigationBarTitleText": "新增养殖信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/crowdInfo/addHouseInfo",
+			"style": {
+				"navigationBarTitleText": "新增房屋信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/letters/letters",
+			"style": {
+				"navigationBarTitleText": "事件上报",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/letters/letterDetail",
+			"style": {
+				"navigationBarTitleText": "事件详情",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/letters/addLetter",
+			"style": {
+				"navigationBarTitleText": "事件上报",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/scan/scan",
+			"style": {
+				"navigationBarTitleText": "一户一码",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/clockIn/clockIn",
+			"style": {
+				"navigationBarTitleText": "入户打卡",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/resources/resources",
+			"style": {
+				"navigationBarTitleText": "资源管理",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/resources/addResources",
+			"style": {
+				"navigationBarTitleText": "新增资源",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/industry/industry",
+			"style": {
+				"navigationBarTitleText": "产业管理",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/industry/addIndustry",
+			"style": {
+				"navigationBarTitleText": "新增产业",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/notice/notice",
+			"style": {
+				"navigationBarTitleText": "内部通知",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/notice/addNoticeFirst",
+			"style": {
+				"navigationBarTitleText": "发布内部通知",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/work/notice/addNoticeLast",
+			"style": {
+				"navigationBarTitleText": "发布内部通知",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/proclamation/proclamation",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/partyMap/partyMap",
+			"style": {
+				"navigationBarTitleText": "党建地图",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/mesher/mesher",
+			"style": {
+				"navigationBarTitleText": "网格化管理",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/partyActivities/partyActivities",
+			"style": {
+				"navigationBarTitleText": "党建活动",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/partyActivities/addActivities",
+			"style": {
+				"navigationBarTitleText": "记录活动",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/partyActivities/addActivitiesConfirm",
+			"style": {
+				"navigationBarTitleText": "记录活动",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/governmentAffairs/governmentAffairs",
+			"style": {
+				"navigationBarTitleText": "政务公开",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/govern/governmentAffairs/allList",
+			"style": {
+				"navigationBarTitleText": "政务公开",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/announcement/audit",
+			"style": {
+				"navigationBarTitleText": "公告审核",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/announcement/auditList",
+			"style": {
+				"navigationBarTitleText": "审核信息",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/workbench/announcement/releaseList",
+			"style": {
+				"navigationBarTitleText": "我发布的",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	    ,{
+            "path" : "pages/workbench/work/crowdInfo/auditPovertyInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改贫困户信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/work/crowdInfo/auditSupportCadresInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "修改帮扶干部信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/work/crowdInfo/houseMapInfo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "房屋信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/work/letters/letterDealWith",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "处理事件",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/govern/partyMap/partyList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "党员管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/govern/mesher/membersList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "网格员管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/workbench/govern/mesher/addVillager",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增村民",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#3b8bec",
+		"backgroundColor": "#3b8bec"
+	},
+	"tabBar": {
+		"color": "#CCCCCC",
+		"selectedColor": "#3B8BEC",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/image/tabs/logo.png",
+			"selectedIconPath": "static/image/tabs/logo.png",
+			"text": "数据"
+		}, {
+			"pagePath": "pages/workbench/workbench",
+			"iconPath": "static/image/tabs/logo.png",
+			"selectedIconPath": "static/image/tabs/logo.png",
+			"text": "工作台"
+		}, {
+			"pagePath": "pages/mine/mine",
+			"iconPath": "static/image/tabs/logo.png",
+			"selectedIconPath": "static/image/tabs/logo.png",
+			"text": "我的"
+		}]
+	}
+}
