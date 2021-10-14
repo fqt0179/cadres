@@ -42,7 +42,7 @@
 			</view>
 			<view class="charts-box group-chart">
 				<qiun-data-charts type="column" :chartData="colChartData"
-					:opts="{  yAxis: { gridType:'dash',  splitNumber:2 },extra: {column: {seriesGap: 0,categoryGap: 5, width: 20}}}"
+					:opts="{ xAxis: {rotateLabel: true, calibration: true}, yAxis: { gridType:'dash',  splitNumber:2 ,data:[{format:'mu', axisLine: false}]},extra: {column: {seriesGap: 0,categoryGap: 5, width: 20}}}"
 					background="none" />
 			</view>
 		</view>
@@ -124,22 +124,25 @@
 			<view class="content-title uni-flex">
 				<text>现有种养殖信息</text>
 				<view class="title-btn-box uni-flex">
-					<view class="btn">种植</view>
-					<view class="btn">养殖</view>
+					<view class="btn" :class="{ active: tableCurrent === 0 }" @click="tableToggle(0)">种植</view>
+					<view class="btn" :class="{ active: tableCurrent === 1 }" @click="tableToggle(1)">养殖</view>
 				</view>
 			</view>
 			<view class="charts-box">
 				<view class="list-data">
 					<view class="list-header uni-flex">
-						<view class="list-header-item">文件名</view>
-						<view class="list-header-item">来源</view>
-						<view class="list-header-item">发布时间</view>
+						<view class="list-header-item">名称</view>
+						<view class="list-header-item">类别</view>
+						<view class="list-header-item">单位</view>
+						<view class="list-header-item">数量</view>
 					</view>
 					<view class="list">
-						<view class="list-cell uni-flex" v-for="(item, index) in ageData" :key="index">
-							<view class="list-cell-item">{{ item.a }}</view>
-							<view class="list-cell-item">{{ item.b }}</view>
-							<view class="list-cell-item">{{ item.c }}</view>
+						<view class="list-cell uni-flex"
+							v-for="(item, index) in (tableCurrent === 0? plantTableData:frameTableData)" :key="index">
+							<view class="list-cell-item">{{ item.name }}</view>
+							<view class="list-cell-item">{{ item.type }}</view>
+							<view class="list-cell-item">{{ item.unit }}</view>
+							<view class="list-cell-item">{{ item.number }}</view>
 						</view>
 					</view>
 				</view>
@@ -156,38 +159,60 @@
 			return {
 				userName: "rural",
 				current: 0,
+				tableCurrent: 0,
 				chartsDataMap1: {},
-				ageData: [{
-						color: '#826AF9',
-						a: '20岁以下',
-						b: 10000,
-						c: '10%'
-					},
-					{
-						color: '#FFE700',
-						a: '20-30岁',
-						b: 10000,
-						c: '10%'
-					},
-					{
-						color: '#FF6C40',
-						a: '30-40岁',
-						b: 10000,
-						c: '10%'
-					},
-					{
-						color: '#2D99FF',
-						a: '40-50岁',
-						b: 10000,
-						c: '10%'
-					},
-					{
-						color: '#505D6F',
-						a: '50岁以上',
-						b: 10000,
-						c: '10%'
-					}
-				],
+				plantTableData: [{
+					name: '西瓜',
+					type: '水果',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '西瓜',
+					type: '水果',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '西瓜',
+					type: '水果',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '西瓜',
+					type: '水果',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '西瓜',
+					type: '水果',
+					unit: '吨',
+					number: '20'
+				}],
+				frameTableData: [{
+					name: '猪',
+					type: '家畜',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '猪',
+					type: '家畜',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '猪',
+					type: '家畜',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '猪',
+					type: '家畜',
+					unit: '吨',
+					number: '20'
+				}, {
+					name: '猪',
+					type: '家畜',
+					unit: '吨',
+					number: '20'
+				}],
 				colChartData: {
 					"categories": [
 						"隆阳区",
@@ -318,11 +343,18 @@
 			this.chartsDataMap1 = {
 				series: mapdata.features
 			}
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 0
+			})
 		},
 		methods: {
 			toggle(index) {
 				this.current = index;
-			}
+			},
+			tableToggle(index) {
+				this.tableCurrent = index;
+			},
 		}
 	}
 </script>
@@ -430,25 +462,14 @@
 							font-size: 26rpx;
 							color: #333333;
 							font-weight: 700;
-							width: 130rpx;
+							width: 170rpx;
 							line-height: 100rpx;
 							box-sizing: border-box;
+							text-align: center;
 
 							&+.list-header-item {
-								width: 112rpx;
+								text-align: left;
 
-								&+.list-header-item {
-									width: 148rpx;
-
-									&+.list-header-item {
-										width: 108rpx;
-
-										&+.list-header-item {
-											width: auto;
-											flex: 1;
-										}
-									}
-								}
 							}
 
 						}
@@ -461,25 +482,13 @@
 							flex: none;
 							font-size: 26rpx;
 							color: #333333;
-							width: 130rpx;
+							width: 170rpx;
 							line-height: 100rpx;
 							box-sizing: border-box;
+							text-align: center;
 
 							&+.list-cell-item {
-								width: 112rpx;
-
-								&+.list-cell-item {
-									width: 148rpx;
-
-									&+.list-cell-item {
-										width: 108rpx;
-
-										&+.list-cell-item {
-											width: auto;
-											flex: 1;
-										}
-									}
-								}
+								text-align: left;
 							}
 						}
 					}

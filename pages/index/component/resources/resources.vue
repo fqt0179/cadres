@@ -25,7 +25,9 @@
 				<text>设施投入趋势</text>
 			</view>
 			<view class="charts-box">
-				<qiun-data-charts type="line" :chartData="lineChartData" background="none" />
+				<qiun-data-charts type="line"
+					:opts="{xAxis: {rotateLabel: true}, yAxis: {gridType:'dash', data:[{format:'wanyuan', axisLine: false}]}}"
+					:chartData="lineChartData" background="none" />
 			</view>
 		</view>
 		<view class="content-box">
@@ -34,7 +36,7 @@
 			</view>
 			<view class="charts-box group-chart">
 				<qiun-data-charts type="column" :chartData="colChartData"
-					:opts="{  yAxis: { gridType:'dash',  splitNumber:2 },extra: {column: {seriesGap: 0,categoryGap: 5, width: 40}}}"
+					:opts="{xAxis: {rotateLabel: true},  yAxis: { gridType:'dash',  splitNumber:2,  data:[{format:'wanyuan', axisLine: false}], },extra: {column: {seriesGap: 0,categoryGap: 5, width: 40}}}"
 					background="none" />
 			</view>
 		</view>
@@ -45,9 +47,9 @@
 			<view class="charts-box">
 				<view class="list-data">
 					<view class="list-header uni-flex">
-						<view class="list-header-item">文件名</view>
-						<view class="list-header-item">来源</view>
-						<view class="list-header-item">发布时间</view>
+						<view class="list-header-item">设施名称</view>
+						<view class="list-header-item">类型</view>
+						<view class="list-header-item">地址</view>
 					</view>
 					<view class="list">
 						<view class="list-cell uni-flex" v-for="(item, index) in ageData" :key="index">
@@ -72,9 +74,9 @@
 				chartsDataMap1: {},
 				ageData: [{
 						color: '#826AF9',
-						a: '20岁以下',
+						a: '阿斯蒂',
 						b: 10000,
-						c: '10%'
+						c: 'xxxxxx'
 					},
 					{
 						color: '#FFE700',
@@ -123,7 +125,7 @@
 								name: '鸡',
 								value: 100
 							}
-						]
+						],
 					}]
 				},
 				chartsDataRing1: {
@@ -152,8 +154,8 @@
 					],
 					series: [{
 						name: '投入金额',
-						data: [6100, 12300, 18200, 23100, 36400, 62100, 86300, 103200, 116100, 139800, 159600,
-							173000
+						data: [0.61, 1.23, 1.82, 2.31, 3.64, 6.21, 8.63, 10.32, 11.61, 13.98, 15.96,
+							17.30
 						]
 					}]
 				},
@@ -180,6 +182,10 @@
 			this.chartsDataMap1 = {
 				series: mapdata.features
 			}
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 0
+			})
 		},
 	}
 </script>
@@ -241,24 +247,17 @@
 							font-size: 26rpx;
 							color: #333333;
 							font-weight: 700;
-							width: 130rpx;
+							width: 230rpx;
 							line-height: 100rpx;
 							box-sizing: border-box;
 
 							&+.list-header-item {
-								width: 112rpx;
+								width: 188rpx;
+
 
 								&+.list-header-item {
-									width: 148rpx;
-
-									&+.list-header-item {
-										width: 108rpx;
-
-										&+.list-header-item {
-											width: auto;
-											flex: 1;
-										}
-									}
+									width: auto;
+									flex: 1;
 								}
 							}
 
@@ -272,24 +271,16 @@
 							flex: none;
 							font-size: 26rpx;
 							color: #333333;
-							width: 130rpx;
+							width: 230rpx;
 							line-height: 100rpx;
 							box-sizing: border-box;
 
 							&+.list-cell-item {
-								width: 112rpx;
+								width: 188rpx;
 
 								&+.list-cell-item {
-									width: 148rpx;
-
-									&+.list-cell-item {
-										width: 108rpx;
-
-										&+.list-cell-item {
-											width: auto;
-											flex: 1;
-										}
-									}
+									width: auto;
+									flex: 1;
 								}
 							}
 						}

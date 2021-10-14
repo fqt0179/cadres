@@ -54,20 +54,7 @@
 				<input class="cus-input" type="text" value="" placeholder="请填写" />
 			</view>
 		</view>
-
-
-
-
-
-
-
-		<!-- TODO -->
-		判断选择显示模块 待完善
-
-
-
-
-		<view class="item">
+		<view class="item" v-if="oneTypeIndex === 0 && typeIndex === 1">
 			<view class="label uni-flex">
 				<text class="cus-star-red">*</text>
 				<text class="label-txt">面积</text>
@@ -77,7 +64,7 @@
 				<text class="unit">亩</text>
 			</view>
 		</view>
-		<view class="item">
+		<view class="item" v-if="oneTypeIndex === 0 && typeIndex === 0">
 			<view class="label uni-flex">
 				<text class="cus-star-red">*</text>
 				<text class="label-txt">种植面积</text>
@@ -87,7 +74,8 @@
 				<text class="unit">亩</text>
 			</view>
 		</view>
-		<view class="item">
+		<view class="item"
+			v-if="oneTypeIndex === 0 && (typeIndex === 2 || typeIndex === 3) || oneTypeIndex === 3 && (typeIndex === 0)">
 			<view class="label uni-flex">
 				<text class="cus-star-red">*</text>
 				<text class="label-txt">单位</text>
@@ -96,7 +84,7 @@
 				<input class="cus-input" type="text" value="" placeholder="请填写" />
 			</view>
 		</view>
-		<view class="item">
+		<view class="item" v-if="oneTypeIndex === 0 && (typeIndex === 2 || typeIndex === 3)">
 			<view class="label uni-flex">
 				<text class="cus-star-red">*</text>
 				<text class="label-txt">数量</text>
@@ -105,17 +93,16 @@
 				<input class="cus-input" type="text" value="" placeholder="请填写" />
 			</view>
 		</view>
-		<view class="item">
+		<view class="item" v-if="oneTypeIndex === 0 && typeIndex === 0 || oneTypeIndex === 3 && typeIndex === 0">
 			<view class="label uni-flex">
 				<text class="label-txt">产量</text>
 			</view>
 			<view class="value uni-flex">
 				<input class="cus-input" type="text" value="" placeholder="请填写" />
-				<text class="unit">吨</text>
+				<text class="unit" v-if="oneTypeIndex === 0 && typeIndex === 0">吨</text>
 			</view>
 		</view>
 
-		待完善结束
 		<view class="item">
 			<view class="label uni-flex">
 				<text class="cus-star-red">*</text>
@@ -137,10 +124,7 @@
 		</view>
 
 
-		<!-- TODO -->
-		判断选择显示模块 待完善（价格区间模块）
-
-		<view class="item">
+		<view class="item" v-if="oneTypeIndex === 0 && typeIndex === 0 || oneTypeIndex === 3">
 			<view class="label uni-flex">
 				<text class="label-txt">价格区间</text>
 			</view>
@@ -152,7 +136,6 @@
 				<text class="unit">元/市斤</text>
 			</view>
 		</view>
-		待完善结束
 
 		<view class="item segmentation">
 			<view class="label uni-flex">
@@ -217,8 +200,6 @@
 				typeIndex: '',
 				classifyList: [],
 				classifyIndex: '',
-				natureList: ['公共设施', '自然资源', '商业资源', '特色资源', '其他资源'],
-				natureIndex: '',
 				location: '',
 				imageValue: [],
 			};
@@ -279,30 +260,59 @@
 								this.classifyList = ['煤炭开采和洗选业', '石油和天然气开采业', '黑色金属矿采选业', '有色金属矿采选业', '非金属矿采选业', '其他采矿业']
 								break;
 							case 1:
-								this.classifyList = ['林木的培育和种植', '育种和育苗', '造林', '林木的抚育和管理', '木材和竹材的采运', '木材的采运', '竹材的采运',
-									'林产品的采集'
-								]
+								this.classifyList = ['电力、热力的生产和供应业', '燃气生产和供应业', '水的生产和供应业']
 								break;
 							case 2:
-								this.classifyList = ['牲畜的饲养', '猪的饲养', '家禽的饲养', '狩猎和捕捉动物', '其他畜牧业']
+								this.classifyList = ['电力、热力的生产和供应业', '燃气生产和供应业', '水的生产和供应业']
 								break;
 							case 3:
-								this.classifyList = ['海洋渔业', '海水养殖', '海洋捕捞', '内陆渔业', '内陆养殖', '内陆捕捞']
+								this.classifyList = ['房屋和土木工程建筑业', '建筑安装业', '建筑装饰业', '其他建筑业']
 								break;
 						}
 						break;
 					case 2:
-
+						this.classifyList = ['铁路运输业', '道路运输业', '城市公共交通业', '水上运输业', '航空运输业', '管道运输业', '装卸搬运和其他运输服务业',
+							'仓储业', '邮政业'
+						]
+						// switch (index) {
+						// 	case 0:
+						// 		this.classifyList = ['铁路运输业', '道路运输业', '城市公共交通业', '水上运输业', '航空运输业', '管道运输业',
+						// 			'装卸搬运和其他运输服务业', '仓储业', '邮政业'
+						// 		]
+						// 		break;
+						// }
 						break;
 					case 3:
+						switch (index) {
+							case 0:
+								this.classifyList = ['下一代信息网络产业', '电子核心产业', '新兴软件和新型信息技术服务', '互联网与云计算、大数据服务', '人工智能']
+								break;
+							case 1:
+								this.classifyList = ['智能制造装备产业', '航空装备产业', '卫星及应用产业', '轨道交通装备产业', '海洋工程装备产业']
+								break;
+							case 2:
+								this.classifyList = ['先进钢铁材料', '先进有色金属材料', '先进石化化工新材料', '先进无机非金属材料',
+									'高性能纤维及制品和复合材料', '前沿新材料', '新材料相关服务'
+								]
+								break;
+							case 3:
+								this.classifyList = ['生物医药产业', '生物医学工程产业', '生物农业及相关产业', '生物质能产业', '其他生物业']
+								break;
+							case 4:
+								this.classifyList = ['新能源汽车整车制造', '新能源汽车装置、配件制造', '新能源汽车相关设施制造', '新能源汽车相关服务']
+								break;
+							case 5:
+								this.classifyList = ['核电产业', '风能产业', '太阳能产业', '生物质能及其他新能源产业', '智能电网产业']
+								break;
+							case 6:
+								this.classifyList = ['高效节能产业', '先进环保产业', '资源循环利用产业']
+								break;
+						}
 						break;
 				}
 			},
 			classifyPickerChange(e) {
 				this.classifyIndex = e.target.value
-			},
-			naturePickerChange(e) {
-				this.natureIndex = e.target.value
 			},
 			openLocation() {
 				uni.chooseLocation({

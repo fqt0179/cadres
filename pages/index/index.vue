@@ -139,7 +139,7 @@
 		},
 		data() {
 			return {
-				role: 'admin1',
+				role: 'admin',
 				items: ['乡村总览', '智慧党建', '产业大数据', '资源大数据'],
 				current: 0,
 				title: 'Hello',

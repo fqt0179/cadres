@@ -54,6 +54,10 @@ module.exports = {
   "option":{},
   //下面是自定义format配置，因除H5端外的其他端无法通过props传递函数，只能通过此属性对应下标的方式来替换
   "formatter":{
+	"wanyuan":val => val + '万元',
+	"ren":val => val + '人',
+	"wanren":val => val + '万人',
+	"mu":val => val + '亩',
     "yAxisDemo1":function(val){return val+'元'},
     "yAxisDemo2":function(val){return val.toFixed(2)},
     "xAxisDemo1":function(val){return val+'年'},

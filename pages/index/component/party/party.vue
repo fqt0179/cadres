@@ -73,7 +73,7 @@
 				<text>党员数量增长趋势</text>
 			</view>
 			<view class="charts-box">
-				<qiun-data-charts type="line" :chartData="lineChartData" background="none" />
+				<qiun-data-charts type="line" :opts="{xAxis: {rotateLabel: true, calibration: true}, yAxis: {gridType:'dash', data:[{format:'ren', axisLine: false}]}}" :chartData="lineChartData" background="none" />
 			</view>
 		</view>
 		<view class="content-box">
@@ -81,7 +81,7 @@
 				<text>党员名族统计</text>
 			</view>
 			<view class="charts-box">
-				<qiun-data-charts type="bar" :opts="{xAxis:{max:6}, extra: {bar: {width: 20, categoryGap: 3}}}"
+				<qiun-data-charts type="bar" :opts="{xAxis:{max:6, format:'wanren'}, extra: {bar: {width: 20, categoryGap: 3}}}"
 					:chartData="barChartsDataColumn1" />
 			</view>
 		</view>
@@ -180,7 +180,7 @@
 				barChartsDataColumn1: {
 					"categories": ["汉族", "傣族", "回族", "白族", "景颇族", "阿昌族", '蒙古族', '其他民族'],
 					"series": [{
-						"name": "万人",
+						"name": "名族",
 						"data": [5.2, 1.2, 1.1, 0.78, 0.56, 0.51, 0.23, 0.12]
 					}]
 				},
@@ -254,6 +254,10 @@
 			this.chartsDataMap1 = {
 				series: mapdata.features
 			}
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 0
+			})
 		},
 	}
 </script>

@@ -80,7 +80,7 @@
 				</view>
 			</view>
 			<view class="charts-box line">
-				<qiun-data-charts type="line" :chartData="chartData" background="none" />
+				<qiun-data-charts type="line" :chartData="chartData" :opts="{xAxis: {rotateLabel: true, calibration: true}, yAxis: {gridType:'dash', data:[{format:'ren', axisLine: false}]}}" background="none" />
 			</view>
 		</view>
 		<view class="content-box">
@@ -156,7 +156,7 @@
 			<view class="charts-box">
 				<qiun-data-charts type="arcbar"
 					:opts="{ title: { name: '', color: '#1890ff', fontSize: 35 }, subtitle: { name: '' }, extra: { arcbar: { type: 'circle', startAngle: 1.5, width: 24, gap: 10 } } }"
-					:chartData="chartsDataArcbar2" />
+					:chartData="chartsDataArcbar2"  @getIndex="getIndex" />
 			</view>
 		</view>
 		<view class="content-box">
@@ -323,11 +323,19 @@
 			this.chartsDataMap1 = {
 				series: mapdata.features
 			}
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 0
+			})
 		},
 		methods: {
 			toggle(index) {
 				this.current = index;
-			}
+			},
+			getIndex(e){
+			  console.log(e)
+			},
+
 		}
 	};
 </script>
