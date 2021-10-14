@@ -19,7 +19,7 @@
 				<uni-row class="people-row">
 					<uni-col :span="12">
 						<view class="num-item uni-flex uni-column">
-							<view class="num">10000</view>
+							<view class="num">19555</view>
 							<view class="num_name">村民总数</view>
 						</view>
 					</uni-col>
