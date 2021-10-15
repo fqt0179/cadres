@@ -80,7 +80,9 @@
 				</view>
 			</view>
 			<view class="charts-box line">
-				<qiun-data-charts type="line" :chartData="chartData" :opts="{xAxis: {rotateLabel: true, calibration: true}, yAxis: {gridType:'dash', data:[{format:'ren', axisLine: false}]}}" background="none" />
+				<qiun-data-charts type="line" :chartData="chartData"
+					:opts="{xAxis: {rotateLabel: true, calibration: true}, yAxis: {gridType:'dash', data:[{format:'ren', axisLine: false}]}}"
+					background="none" />
 			</view>
 		</view>
 		<view class="content-box">
@@ -152,12 +154,26 @@
 			</view>
 		</view>
 		<view class="content-box">
-			<view class="content-title"><text>产业情况</text></view>
-			<view class="charts-box">
+			<view class="content-title uni-flex">
+				<text>产业情况</text>
+				<view v-if="!showLevelOne" class="title-btn-box uni-flex">
+					<view class="title-right-name">{{colChartData.series[0].name || '’'}}</view>
+					<view class="btn" @click="showLevelOne = true">返回</view>
+				</view>
+			</view>
+			<view class="charts-box" v-if="showLevelOne">
+				<qiun-data-charts type="pie" :chartData="chartsDataArcbar2" background="none" @getIndex="getIndex" />
+			</view>
+			<view class="charts-box" v-else>
+				<qiun-data-charts type="column" :chartData="colChartData"
+					:opts="{xAxis: {rotateLabel: true},  yAxis: { gridType:'dash',  splitNumber:2,  data:[{format:'wanren', axisLine: false}], },extra: {column: {seriesGap: 0,categoryGap: 5, width: 40}}}"
+					background="none" />
+			</view>
+			<!-- <view class="charts-box">
 				<qiun-data-charts type="arcbar"
 					:opts="{ title: { name: '', color: '#1890ff', fontSize: 35 }, subtitle: { name: '' }, extra: { arcbar: { type: 'circle', startAngle: 1.5, width: 24, gap: 10 } } }"
 					:chartData="chartsDataArcbar2"  @getIndex="getIndex" />
-			</view>
+			</view> -->
 		</view>
 		<view class="content-box">
 			<view class="content-title uni-flex">
@@ -206,6 +222,8 @@
 	export default {
 		data() {
 			return {
+				showLevelOne: true,
+				colChartData: {},
 				ageData: [{
 						color: '#826AF9',
 						a: '20岁以下',
@@ -304,15 +322,15 @@
 				},
 				chartsDataArcbar2: {
 					series: [{
-							name: '一班',
+							name: '第一产业',
 							data: 0.8
 						},
 						{
-							name: '二班',
+							name: '第二产业',
 							data: 0.6
 						},
 						{
-							name: '三班',
+							name: '第三产业',
 							data: 0.45
 						}
 					]
@@ -332,8 +350,46 @@
 			toggle(index) {
 				this.current = index;
 			},
-			getIndex(e){
-			  console.log(e)
+			getIndex(e) {
+				console.log(e)
+				if (e.currentIndex === 0) {
+					this.colChartData = {
+						"categories": [
+							'农业', '林业', '畜牧业', '渔业'
+						],
+						"series": [{
+							"name": "第一产业",
+							"data": [35, 36, 31, 33]
+						}]
+					}
+				}
+				if (e.currentIndex === 1) {
+					this.colChartData = {
+						"categories": [
+							'采矿业', '制造业', '电力、热力、燃气及水生产和供应业', '建筑业'
+						],
+						"series": [{
+							"name": "第二产业",
+							"data": [35, 36, 31, 33]
+						}]
+					}
+				}
+				if (e.currentIndex === 2) {
+					this.colChartData = {
+						"categories": [
+							'交通运输、仓储和邮政业', '信息传输、计算机服务和软件业', '批发和零售业', '住宿和餐饮业', '金融业', '房地产业', '租赁和商务服务业',
+							'科学研究、技术服务和地质勘查业', '水利、环境和公共设施管理业', '居民服务和其他服务业', '教育', '卫生、社会保障和社会福利业', '文化、体育和娱乐业',
+							'公共管理和社会组织', '国际组织'
+						],
+						"series": [{
+							"name": "第三产业",
+							"data": [35, 36, 31, 33, 22, 35, 36, 31, 33, 22, 35, 36, 31, 33, 22, ]
+						}]
+					}
+				}
+				setTimeout(() => {
+					this.showLevelOne = false
+				}, 100)
 			},
 
 		}
@@ -366,6 +422,15 @@
 				align-items: center;
 
 				.title-btn-box {
+					align-items: center;
+
+					.title-right-name {
+						font-size: 24rpx;
+						color: #333;
+						font-weight: normal;
+						margin-right: 20rpx;
+					}
+
 					.btn {
 						font-size: 20rpx;
 						color: #333;
@@ -480,13 +545,13 @@
 
 							&+.list-cell-item {
 								width: 112rpx;
-							
+
 								&+.list-cell-item {
 									width: 148rpx;
-							
+
 									&+.list-cell-item {
 										width: 108rpx;
-							
+
 										&+.list-cell-item {
 											width: auto;
 											flex: 1;
